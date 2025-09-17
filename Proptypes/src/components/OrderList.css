@@ -1,0 +1,15 @@
+.order-list {
+    padding: 20px;
+  }
+  
+  .order-list h2 {
+    margin-bottom: 16px;
+    color: #90ee90; 
+  }
+  
+  .order-list-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+  }
+  

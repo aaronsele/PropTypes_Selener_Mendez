@@ -1,0 +1,24 @@
+.order-filter {
+    margin: 16px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .order-filter-label {
+    font-weight: bold;
+    color: #90ee90; /* verde clarito */
+  }
+  
+  .order-filter-select {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+  }
+  
+  .order-filter-select:focus {
+    border-color: #90ee90;
+    box-shadow: 0 0 4px #90ee90;
+  }
+  
