@@ -1,10 +1,17 @@
 import { Link } from "react-router-dom";
+import logo from "../assets/logomail.png"; 
 
 function Navbar() {
   return (
-    <nav style={{ padding: "1rem", background: "#f0f0f0" }}>
-      <Link to="/" style={{ marginRight: "1rem" }}>Inicio</Link>
-      <Link to="/add">Agregar Pedido</Link>
+    <nav>
+      <div>
+        <img src={logo} alt="MailAmericas Logo" style={{ height: "32px" }} />
+        <span>MailAmericas</span>
+      </div>
+      <div>
+        <Link to="/">Inicio</Link>
+        <Link to="/add">Agregar Pedido</Link>
+      </div>
     </nav>
   );
 }
