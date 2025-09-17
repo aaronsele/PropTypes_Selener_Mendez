@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Dashboard from "./components/Dashboard";
+import OrderForm from "./components/OrderForm";
+import Navbar from "./components/Navbar";
+
+const initialOrders = [
+  {
+    id: 1,
+    customer: "Manuel Mendez",
+    date: new Date(),
+    status: "pending",
+    items: [
+      { productId: 101, name: "Camiseta de Sanlorenzo ", quantity: 2, price: 99000 },
+      { productId: 102, name: "Gorra del ciclón", quantity: 1, price: 800 },
+    ],
+  },
+  {
+    id: 2,
+    customer: "Peta Frankenthal",
+    date: new Date(),
+    status: "shipped",
+    items: [{ productId: 201, name: "Fiat Cronos", quantity: 1, price: 700000 }],
+  },
+];
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [orders, setOrders] = useState(initialOrders);
+
+  const addOrder = (newOrder) => {
+    setOrders([...orders, { ...newOrder, id: orders.length + 1 }]);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Dashboard orders={orders} />} />
+        <Route path="/add" element={<OrderForm onAddOrder={addOrder} />} />
+      </Routes>
+    </div>
+  );
 }
 
-export default App
+export default App;
