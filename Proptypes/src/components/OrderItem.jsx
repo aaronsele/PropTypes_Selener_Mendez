@@ -1,15 +1,16 @@
 import PropTypes from "prop-types";
+import './OrderItem.css';
 
 function OrderItem({ id, customer, date, status, items }) {
   return (
-    <div>
-      <h3>Pedido #{id}</h3>
-      <p>Cliente: {customer}</p>
-      <p>Fecha: {date.toLocaleDateString()}</p>
-      <p>Estado: {status}</p>
-      <ul>
+    <div className="order-item-container">
+      <h3 className="order-item-title">Pedido #{id}</h3>
+      <p className="order-item-customer">Cliente: {customer}</p>
+      <p className="order-item-date">Fecha: {date.toLocaleDateString()}</p>
+      <p className={`order-item-status status-${status}`}>Estado: {status}</p>
+      <ul className="order-item-list">
         {items.map((item) => (
-          <li key={item.productId}>
+          <li key={item.productId} className="order-item-list-item">
             {item.name} - {item.quantity} x ${item.price}
           </li>
         ))}

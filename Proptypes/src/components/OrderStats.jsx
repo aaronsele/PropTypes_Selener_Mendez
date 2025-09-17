@@ -1,13 +1,14 @@
 import PropTypes from "prop-types";
+import './OrderStats.css';
 
 function OrderStats({ total, pending, shipped, delivered }) {
   return (
-    <div>
-      <h2>Estadísticas</h2>
-      <p>Total: {total}</p>
-      <p>Pendientes: {pending}</p>
-      <p>Enviados: {shipped}</p>
-      <p>Entregados: {delivered}</p>
+    <div className="order-stats-container">
+      <h2 className="order-stats-title">Estadísticas</h2>
+      <p className="order-stats-item">Total: {total}</p>
+      <p className="order-stats-item">Pendientes: {pending}</p>
+      <p className="order-stats-item">Enviados: {shipped}</p>
+      <p className="order-stats-item">Entregados: {delivered}</p>
     </div>
   );
 }

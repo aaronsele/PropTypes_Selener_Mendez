@@ -3,6 +3,7 @@ import OrderList from "./OrderList";
 import OrderFilter from "./OrderFilter";
 import OrderStats from "./OrderStats";
 import PropTypes from "prop-types";
+import './Dashboard.css';
 
 function Dashboard({ orders }) {
   const [filter, setFilter] = useState("all");
@@ -18,10 +19,18 @@ function Dashboard({ orders }) {
   };
 
   return (
-    <div>
-      <OrderFilter filter={filter} setFilter={setFilter} />
-      <OrderStats {...stats} />
-      <OrderList orders={filteredOrders} />
+    <div className="dashboard-page">
+      <div className="dashboard-header">
+        <OrderFilter filter={filter} setFilter={setFilter} />
+      </div>
+      <div className="dashboard-main">
+        <div className="dashboard-stats">
+          <OrderStats {...stats} />
+        </div>
+        <div className="dashboard-list">
+          <OrderList orders={filteredOrders} />
+        </div>
+      </div>
     </div>
   );
 }
