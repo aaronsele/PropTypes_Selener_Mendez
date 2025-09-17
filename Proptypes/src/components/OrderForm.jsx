@@ -1,16 +1,13 @@
-// src/components/OrderForm.jsx
 import { useState } from "react";
 import PropTypes from "prop-types";
+import './OrderForm.css';
 
-// genera un id numérico para productId (simple y efectivo)
 const genId = () => Date.now() + Math.floor(Math.random() * 1000);
 
 export default function OrderForm({ onAddOrder }) {
   const [customer, setCustomer] = useState("");
   const [status, setStatus] = useState("pending");
-  const [items, setItems] = useState([
-    { productId: genId(), name: "", quantity: 1, price: 0 },
-  ]);
+  const [items, setItems] = useState([{ productId: genId(), name: "", quantity: 1, price: 0 }]);
   const [errors, setErrors] = useState([]);
 
   const handleItemChange = (index, field, value) => {
@@ -23,14 +20,9 @@ export default function OrderForm({ onAddOrder }) {
     });
   };
 
-  const addItem = () =>
-    setItems((prev) => [
-      ...prev,
-      { productId: genId(), name: "", quantity: 1, price: 0 },
-    ]);
+  const addItem = () => setItems((prev) => [...prev, { productId: genId(), name: "", quantity: 1, price: 0 }]);
 
-  const removeItem = (index) =>
-    setItems((prev) => (prev.length === 1 ? prev : prev.filter((_, i) => i !== index)));
+  const removeItem = (index) => setItems((prev) => (prev.length === 1 ? prev : prev.filter((_, i) => i !== index)));
 
   const validate = () => {
     const errs = [];
@@ -55,13 +47,11 @@ export default function OrderForm({ onAddOrder }) {
       customer: customer.trim(),
       status,
       date: new Date(),
-      // asegurar productId numérico
       items: items.map((it) => ({ ...it, productId: Number(it.productId) })),
     };
 
     onAddOrder(order);
 
-    // reset
     setCustomer("");
     setStatus("pending");
     setItems([{ productId: genId(), name: "", quantity: 1, price: 0 }]);
@@ -69,12 +59,12 @@ export default function OrderForm({ onAddOrder }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Nuevo pedido</h2>
+    <form className="order-form" onSubmit={handleSubmit}>
+      <h2 className="order-form-title">Nuevo pedido</h2>
 
       {errors.length > 0 && (
-        <div className="form-errors" style={{ color: "crimson", marginBottom: 8 }}>
-          <ul style={{ margin: 0, paddingLeft: "1.2rem" }}>
+        <div className="order-form-errors">
+          <ul>
             {errors.map((err, i) => (
               <li key={i}>{err}</li>
             ))}
@@ -82,7 +72,7 @@ export default function OrderForm({ onAddOrder }) {
         </div>
       )}
 
-      <div>
+      <div className="order-form-field">
         <label>Cliente</label>
         <input
           type="text"
@@ -92,7 +82,7 @@ export default function OrderForm({ onAddOrder }) {
         />
       </div>
 
-      <div>
+      <div className="order-form-field">
         <label>Estado</label>
         <select value={status} onChange={(e) => setStatus(e.target.value)}>
           <option value="pending">Pendiente</option>
@@ -101,10 +91,10 @@ export default function OrderForm({ onAddOrder }) {
         </select>
       </div>
 
-      <h3>Items</h3>
+      <h3 className="order-form-subtitle">Items</h3>
       {items.map((it, idx) => (
-        <div key={it.productId} style={{ border: "1px solid #eee", padding: 8, marginBottom: 8 }}>
-          <div>
+        <div key={it.productId} className="order-form-item">
+          <div className="order-form-field">
             <label>Nombre del producto</label>
             <input
               type="text"
@@ -114,7 +104,7 @@ export default function OrderForm({ onAddOrder }) {
             />
           </div>
 
-          <div>
+          <div className="order-form-field">
             <label>Cantidad</label>
             <input
               type="number"
@@ -124,7 +114,7 @@ export default function OrderForm({ onAddOrder }) {
             />
           </div>
 
-          <div>
+          <div className="order-form-field">
             <label>Precio</label>
             <input
               type="number"
@@ -135,23 +125,19 @@ export default function OrderForm({ onAddOrder }) {
             />
           </div>
 
-          <div>
-            <button type="button" onClick={() => removeItem(idx)} disabled={items.length === 1}>
-              Eliminar item
-            </button>
-          </div>
+          <button type="button" className="order-form-remove-btn" onClick={() => removeItem(idx)} disabled={items.length === 1}>
+            Eliminar item
+          </button>
         </div>
       ))}
 
-      <div>
-        <button type="button" onClick={addItem}>
-          + Agregar item
-        </button>
-      </div>
+      <button type="button" className="order-form-add-btn" onClick={addItem}>
+        + Agregar item
+      </button>
 
-      <div style={{ marginTop: 10 }}>
-        <button type="submit">Agregar pedido</button>
-      </div>
+      <button type="submit" className="order-form-submit-btn">
+        Agregar pedido
+      </button>
     </form>
   );
 }

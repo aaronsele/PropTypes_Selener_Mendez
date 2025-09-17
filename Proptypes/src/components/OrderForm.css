@@ -1,0 +1,103 @@
+.order-form {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #90ee90;
+    box-shadow: 0 0 15px rgba(144, 238, 144, 0.2);
+    max-width: 600px;
+    margin: 0 auto 20px auto;
+    color: #90ee90;
+  }
+  
+  .order-form-title {
+    font-size: 22px;
+    margin-bottom: 16px;
+    font-weight: bold;
+  }
+  
+  .order-form-subtitle {
+    font-size: 18px;
+    margin: 16px 0 8px 0;
+    font-weight: 600;
+  }
+  
+  .order-form-errors {
+    color: crimson;
+    margin-bottom: 12px;
+  }
+  
+  .order-form-errors ul {
+    margin: 0;
+    padding-left: 1.2rem;
+  }
+  
+  .order-form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+  }
+  
+  .order-form-field label {
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+  
+  .order-form-field input,
+  .order-form-field select {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #90ee90;
+    background-color: black;
+    color: #90ee90;
+  }
+  
+  .order-form-item {
+    border: 1px solid #90ee90;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  
+  .order-form-remove-btn {
+    margin-top: 8px;
+    background-color: crimson;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+  }
+  
+  .order-form-remove-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .order-form-add-btn,
+  .order-form-submit-btn {
+    margin-top: 12px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  .order-form-add-btn {
+    background-color: #32cd32;
+    color: black;
+    margin-right: 8px;
+  }
+  
+  .order-form-submit-btn {
+    background-color: #90ee90;
+    color: black;
+  }
+  
+  .order-form-add-btn:hover,
+  .order-form-submit-btn:hover,
+  .order-form-remove-btn:hover:not(:disabled) {
+    box-shadow: 0 0 8px #90ee90;
+  }
+  
