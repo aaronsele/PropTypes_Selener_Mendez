@@ -14,6 +14,7 @@ function OrderFilter({ filter, setFilter }) {
         <option value="pending">Pendiente</option>
         <option value="shipped">Enviado</option>
         <option value="delivered">Entregado</option>
+        
       </select>
     </div>
   );

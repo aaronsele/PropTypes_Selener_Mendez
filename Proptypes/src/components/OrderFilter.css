@@ -1,24 +1,25 @@
 .order-filter {
-    margin: 16px 0;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .order-filter-label {
-    font-weight: bold;
-    color: #90ee90; /* verde clarito */
-  }
-  
-  .order-filter-select {
-    padding: 6px 12px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    outline: none;
-  }
-  
-  .order-filter-select:focus {
-    border-color: #90ee90;
-    box-shadow: 0 0 4px #90ee90;
-  }
-  
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.order-filter-label {
+  font-weight: bold;
+  color: #333;
+}
+
+.order-filter-select {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+  background-color: white;
+}
+
+.order-filter-select:focus {
+  border-color: #4caf50; /* verde clásico */
+  box-shadow: 0 0 4px rgba(76, 175, 80, 0.5);
+}

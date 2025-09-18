@@ -1,34 +1,36 @@
 .order-stats-container {
-    background-color: black;
-    color: #90ee90;
-    border: 1px solid #90ee90;
-    border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 16px;
-  }
-  
-  .order-stats-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 12px;
-  }
-  
-  .order-stats-item {
-    font-weight: 500;
-    margin-bottom: 6px;
-  }
-  
-  /* Colores para diferenciar estados */
-  .order-stats-item:nth-child(2) { /* Total */
-    color: #90ee90;
-  }
-  .order-stats-item:nth-child(3) { /* Pendientes */
-    color: #ffd700;
-  }
-  .order-stats-item:nth-child(4) { /* Enviados */
-    color: #1e90ff;
-  }
-  .order-stats-item:nth-child(5) { /* Entregados */
-    color: #32cd32;
-  }
-  
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.order-stats-title {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.order-stats-item {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Colores para diferenciar estados */
+.order-stats-item:nth-child(2) {
+  color: #e67e22; /* pendientes - naranja */
+  font-weight: bold;
+}
+
+.order-stats-item:nth-child(3) {
+  color: #3498db; /* enviados - azul */
+  font-weight: bold;
+}
+
+.order-stats-item:nth-child(4) {
+  color: #27ae60; /* entregados - verde */
+  font-weight: bold;
+}
